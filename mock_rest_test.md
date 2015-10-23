@@ -76,3 +76,7 @@ Resources 메뉴 밑의 DATA를 클릭하고 데이터를 입력
 ### 자동문서화
 
 [http://localhost:3000/_documentation/](http://localhost:3000/_documentation/)
+
+## 3. WireMock
+http://wiremock.org/getting-started.html
+http://javacan.tistory.com/entry/useful-test-tool-WireMock
