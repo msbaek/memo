@@ -1,5 +1,9 @@
 # Test Process: Simple Techniques
 
+[TOC]
+
+이 문서에서는 TDD의 테크닉들을 소개한다.
+
 ## 1. Fake it till you make it
 ```
 public class StackTest {
@@ -20,64 +24,52 @@ public class Stack {
 
 ![](https://api.monosnap.com/rpc/file/download?id=evnTXBhrRYTPg1FpGGqH5oQ9GzSlno)
 
-테스트를 성공시키기 위해 fake했다.
+테스트를 성공시키기 위해 fake했다. 실제로 로직을 구현한 것이 아니라 상수를 반환하여 테스트가 성공하도록 했다는 의미이다.
 
-```
-public class PrimeFactorsTest {
-	@Test
-	public void factors() {
-		assertThat(primeFactorsOf(1), isListOf());
-	}
+fake it은 null, 0, 1, true, false, empty list 등을 반환하는 방법으로 테스트를 성공시키는 기법이다.
 
-	private List<Integer> primeFactorsOf(int n) {
-		return null;
-	}
+이러한 기법을 **fake it till you make it**이라고 한다. 반드시 구현을 해야만 하는 상황이 발생할 때까지는 최대한 fake함으로써 테스트를 성공시키라는 의미이다.
 
-	private Matcher<List> isListOf(Integer... ints) {
-		return is(Arrays.asList(ints));
-	}
-}
-```
-이 경우도 primeFactorsOf 함수의 디폴트 구현체가 null을 반환하여 테스트가 실패한다. 이를 성공시키기 위해서 return new ArrayList<Integer>();로 변경한다. 이것도 fake한 것이다.
+##### Incrementalism
 
-![](https://api.monosnap.com/rpc/file/download?id=luNPlFSpFT7m1DLw8jTAbKGYgTxTUU)
-
-
-또 볼링 게임의 예에서는 거터 게임을 위해서는 0을 반환했다. 또 wordwrap 예제에서는 null input에 대해서 empty string을 반환했었다.
-
-이러한 기법을 fake it till you make it이라고 한다.
-
-> faking의 목적은 incrementalism이다.
-
-
-테스트 케이스를 통과시키기 위해 fake(가능한 가장 단순한 방법으로 테스트가 성공하도록)한다. 그 다음 다른 테스트 케이스를 통과시키기 위해 조금 덜 fake한다. 계속 테스트 케이스를 조금 덜 fake하면서 추가하다가 전혀 fake하지 않고 테스트 케이스를 추가할때까지 반복한다.
+faking의 목적은 incrementalism이다. 테스트 케이스를 통과시키기 위해 fake(가능한 가장 단순한 방법으로 테스트가 성공하도록)한다. 그 다음 다른 테스트 케이스를 통과시키기 위해 조금 덜 fake한다. 계속 테스트 케이스를 조금 덜 fake하면서 추가하다가 전혀 fake하지 않고 테스트 케이스를 추가할때까지 반복한다.
 
 목적을 이루기 위해 점진적으로 진행하는 것은 시간 낭비가 아니라 시간을 절약하는 것이다. 더 빨리 개발하는 것이다. 조금씩 진행하는 것이 한번에 크게 진행하는 것보다 항상 빠른 방법이다.
 
-> getting stuck
+##### Getting Stuck
 
-어떤 경우에 fake it은 동작하지 않는다. wordwrap 예제에서 stucking된 상황을 봐라. 어떤 경우에는 테스트를 작성했는데 fake로 성공시킬 수 없고, 테스트를 성공시키기 위해서는 그 즉시 모든 알고리즘을 구현해야 하는 경우가 있다. 이런 경우 getting stucking(더 이상 나아갈 수 없는 상태)된 것이다. 이때의 해결책은 "write a simpler test"이다.
+어떤 경우에 fake it은 동작하지 않는다. 
 
-> 테스트를 작성하는 것은 당구를 치는 것과 같다.
+***TODO: wordwrap getting stuck 된 상황 코드 기반 설명 추가***
 
-좋은 당구 선수는 매 큐를 다음 큐를 생각하며 경기를 한다. 당신이 작성하는 모든 테스트는 fake될 수 있는 여유를 남겨야 한다. 더 이상 fake할 수 없을때 까지...테스트를 잘 작성하는 사람은 한번에 모든 것을 구현하려고 하지 않고 다음 테스트 케이스에서 fake하기 위한 여유 공간을 남겨두려고 한다.
+wordwrap 예제에서 stucking된 상황을 봐라. 어떤 경우에는 테스트를 작성했는데 fake로 성공시킬 수 없고, 테스트를 성공시키기 위해서는 그 즉시 모든 알고리즘을 구현해야 하는 경우가 있다. 이런 경우 getting stucking(더 이상 나아갈 수 없는 상태)된 것이다. 이때의 해결책은 **"write a simpler test"**이다.
+
+##### 다음 수를 고려한 플레이
+
+테스트를 작성하는 것은 당구를 치는 것과 같다. 좋은 당구 선수는 매 큐를 다음 큐를 생각하며 경기를 한다. 당신이 작성하는 모든 테스트는 fake될 수 있는 여유를 남겨야 한다. 더 이상 fake할 수 없을때 까지...테스트를 잘 작성하는 사람은 한번에 모든 것을 구현하려고 하지 않고 다음 테스트 케이스에서 fake하기 위한 여유 공간을 남겨두려고 한다.
 
 이것은 테스트를 작고, 간단한 설계를 갖도록 유지하는 것을 의미한다. 당신은 당신이 생각할 수 있는 가장 복잡한 테스트를 작성함으로써 당신이 똑똑하다는 것을 세상에 알리면 안된다. 그 대신, 더 이상 테스트할 것이 없을 때까지 복잡한 테스트 작성을 의도적으로 금해야 한다. "engaing as few brain cells as possible at any given moment"라고 표현한다.
-다르게 말하면 어떤 함수를 테스트할 때 outside에서 inside로 접근해야 한다는 것이다. 이 말은 간단하고 적절한(simpler proper) 테스트 케이스를 먼저 추가하라는 것이다(ex. validating argument, simple queries). 이런 simpler proper 이슈들이 모두 해소되면 보다 복잡한 inner working을 언급할 수 있다.
 
-이렇게 테스트를 추가해 나가면 당신이 정말로 중요한 inner working을 할 때 그 deep inner working은 이미 존재하는 것을 발견하는 경우가 종종 있을 것이다.
+다르게 말하면 어떤 함수를 테스트할 때 **outside에서 inside로 접근**해야 한다는 것이다. 이 말은 간단하고 적절한(simpler proper) 테스트 케이스를 먼저 추가하라는 것이다(ex. validating argument, simple queries). 이런 simpler proper 이슈들이 모두 해소되면 보다 복잡한 inner working을 언급할 수 있다.
+
+이렇게 테스트를 추가해 나가면 당신이 정말로 중요한 inner working을 할 때 그 deep inner working이 이미 존재하는 것을 발견하는 경우가 종종 있을 것이다. 복잡한 테스트 케이스를 추가했는데 저절로 테스트가 성공하는...
 
 ## 2. Stairstep Tests
 
-볼링 게임 예제
+##### 볼링 게임 예제
+
+***TODO : 관련 코드 삽입 ***
+
  - 제일 처음에 Game 클래스를 생성하기 위한 canCreateGame 테스트를 추가하다.
  - 그 다음 roll 메소드를 추가하기 위한 rollABall 테스트를 추가한다.
- - 여기까지 구현하면 Game game = new Game();이 2개의 테스트 케이스에서 중복된다. game을 필드로 추출하고 setup 메소드에서 초기화하도록 rafctoring한다.
+ - 여기까지 구현하면 `Game game = new Game();`이 2개의 테스트 케이스에서 중복된다. game을 필드로 추출하고 setup 메소드에서 초기화하도록 rafctoring한다.
  - 그러면 canCreateGame은 empty body가 되어 불필요해지므로 삭제한다.
  - gutterGame 테스트 케이스를 추가한다. score 구현시 디폴트 0대신 -1을 반환하여 실패하는지 확인하고, 후에 0으로 변경하여 성공시킨다(faking it).
  - refactoring: rollABall이 불필요해짐. 왜냐면 gutterGame에서 roll을 호출하니... 이런게 stairstep test이다.
 
-> stairstep test: 테스트의 유일한 목적이 다음 테스트를 순차적으로 구현하기 위함인 경우(다음 테스트를 구현한 후에는 stairstep test는 삭제된다).
+##### stairstep test
+
+테스트의 유일한 존재 목적이 다음 테스트를 순차적으로 구현하기 위함인 경우(다음 테스트를 구현한 후에는 stairstep test는 삭제된다).
 
 stairstep test는 임시적인 중간 단계 코드로 의미를 갖는다.
 
@@ -85,7 +77,7 @@ stairstep test는 임시적인 중간 단계 코드로 의미를 갖는다.
 
 테스트 작성시 assert부터 즉 거꾸로 작성하는 것이다.
 
-#### 1. assert
+##### 3.1. assert
 ```
 public class MailTest {
 	@Test public void newMailBox_isEmpty() {
@@ -93,7 +85,7 @@ public class MailTest {
 	}
 }
 ```
-#### 2. mailbox를 local variable로 선언(quick fix를 이용)
+##### 3.2. mailbox를 local variable로 선언(quick fix를 이용)
 ```
 public class MailTest {
 	@Test public void newMailBox_isEmpty() {
@@ -103,15 +95,15 @@ public class MailTest {
 }
 ```
 
-#### 3. MailBox 클래스 생성
+##### 3.3. MailBox 클래스 생성
 
-#### 4. new MailBox()를 호출하여 uninitialized 이슈 제거
+##### 3.4. new MailBox()를 호출하여 uninitialized 이슈 제거
 
-#### 5. messageCount 메소드 선언
+##### 3.5. messageCount 메소드 선언
 
 assert가 compile error를 유발하고, 또 execution error를 유발함으로써 코딩이 일어나도록 하는 것에 주의하라. 이렇게 함으로써 항상 test에서 시작할 수 있다.
 
-> test drive
+**production 코드에 뭔가를 넣고 싶다면 먼저 그렇게 할 수 밖에 없도록 만드는 테스트 코드를 추가하라.** 이게 **test drive**이고, agile, lean development이다. 또 Needs Driven Development이다.
 
 ## 4. Triangulation
 
@@ -122,6 +114,8 @@ assert가 compile error를 유발하고, 또 execution error를 유발함으로�
 > "As the tests get more specific, the code gets more GENERIC"
 
 하나의 테스트가 아니라 여러개의 테스트를 추가함으로써 문제와 해결책을 좀 더 명확히 하는 기법이다. 삼각법이 2개 이상의 지점의 위치를 이용하여 현 위치를 측정하는 것 처럼...
+
+하나의 테스트만 존재할 때는 fake할 수 있다(상수를 반환함으로써). 하지만 상수로 처리 불가한 테스트를 추가하면(삼각법에서 2개 이상의 지점을 사용하는 것처럼) fake할 수 없게 된다.
 
 서로 다른 계정을 다루는 뱅킹 어플리케이션을 작성하는 것을 가정해 보자. 일단은 savings account(보통 예금), money market account(금융시장 계정)를 다루는...
 이 요구사항은 계층적이다.
@@ -207,10 +201,14 @@ BankAccountTest에 private Account myAccount;를 추가
 
 이미 뭘 구현할지 알고 있는 경우에나 가능한 것 아니냐고 묻는다. 무슨 코드를 작성하게 만드는 코드를 작성. 맞다 어떤 경우에는 어떤 일반화를 할지 이미 알고 있으니 그것이 필요하도록 테스트를 작성할 수 있다.
 
-## One to Many
+## One To Many
 
-one to many practice는 리스트에 있는 많은 아이템을 다뤄야 하는 것을 알고 있더라도 하나의 아이템을 가지고 시작하는 것이 최상이라는 것이다. Kent Beck의 TDD by Example을 인용한다면, "어떻게 객체의 컬렉션에 동작하는 오퍼레이션을 구현하겠는가 ? 컬렉션 없이 먼저 구현하고, 컬렉션에 대해서도 동작하도록 만들어라”이라는 말로 설명할 수 있다.
+one to many practice는 리스트에 있는 많은 아이템을 다뤄야 하는 것을 알고 있더라도 하나의 아이템을 가지고 시작하는 것이 최상이라는 것이다. 
+
+Kent Beck의 TDD by Example을 인용한다면, **"어떻게 객체의 컬렉션에 동작하는 오퍼레이션을 구현하겠는가 ? 컬렉션 없이 먼저 구현하고, 컬렉션에 대해서도 동작하도록 만들어라”**이라는 말로 설명할 수 있다.
+
 스택을 가지고 설명해 알아보자.
+
 스택은 push한 것을 pop해야 한다. 테스트는 아래와 같을 것이다.
 
 ![](https://api.monosnap.com/rpc/file/download?id=hbgT57Q9rG8O3uC0QNo8wuKVL2wsSA)
@@ -295,7 +293,15 @@ Production 코드가 살아 남아 있기를 기대한다. Production 코드가 
 
 아래와 같이 읽을 수 있도록 깨끗해진다.
 
-![](https://api.monosnap.com/rpc/file/download?id=iCIDCr8pKwUKXDnpAZyVHhYvhO87Xv)
+```
+public void testDefaultJsonResponseForProperties() {
+  createTestPage();
+    
+  SimpleResponse jsonResponse = requestPropertiesInJson();
+    
+  assertJsonPropertiesAreAllDefaults(jsonResponse);
+}
+```
 
 Kent Beck은 "**Write to an Audience**"라고 말했다. 명확한 명세서를 읽고 싶은 독자를 대상으로...
 
