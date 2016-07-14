@@ -40,9 +40,8 @@ faking의 목적은 incrementalism이다. 테스트 케이스를 통과시키기
 
 어떤 경우에 fake it은 동작하지 않는다. 
 
-***TODO: wordwrap getting stuck 된 상황 코드 기반 설명 추가***
 
-wordwrap 예제에서 stucking된 상황을 봐라. 어떤 경우에는 테스트를 작성했는데 fake로 성공시킬 수 없고, 테스트를 성공시키기 위해서는 그 즉시 모든 알고리즘을 구현해야 하는 경우가 있다. 이런 경우 getting stucking(더 이상 나아갈 수 없는 상태)된 것이다. 이때의 해결책은 **"write a simpler test"**이다.
+[wordwrap 예제](https://github.com/msbaek/wordwrap)에서 stucking된 상황을 봐라. 어떤 경우에는 테스트를 작성했는데 fake로 성공시킬 수 없고, 테스트를 성공시키기 위해서는 그 즉시 모든 알고리즘을 구현해야 하는 경우가 있다. 이런 경우 getting stucking(더 이상 나아갈 수 없는 상태)된 것이다. 이때의 해결책은 **"write a simpler test"**이다.
 
 ##### 다음 수를 고려한 플레이
 
