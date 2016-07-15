@@ -1,8 +1,13 @@
 # Test Process: Simple Techniques
 
-1. Fake it till you make it
+이 문서에서는 [Clean Coders Episode 22](https://cleancoders.com/episode/clean-code-episode-22/show)의 내용을 정리한 것으로 다음과 같은 TDD의 테크닉들을 소개한다.
 
-이 문서에서는 TDD의 테크닉들을 소개한다.
+1. Fake it till you make it
+2. Stairstep Tests
+3. Assert First
+4. Triangulation
+5. One To Many
+6. Refactoring Tests
 
 ## 1. Fake it till you make it
 ```
