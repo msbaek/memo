@@ -1,5 +1,26 @@
 # Episode 23. Mocking Part 1
 
+``` 
+요약
+Dummy
+- interface의 모든 메소드들이 `return null;`로 구현된 테스트 더블
+
+Stub
+- dummy의 일종. 0이나 null 대신 테스트가 필요로 하는 특정 값을 반환
+
+Spy
+- stub의 일종. 자신이 호출된 fact를 기억하고 후에 테스트에 이러한 fact를 보고
+  - 어떤 함수가, 언제, 몇번, 어떤 인자로 호출되었는지 등
+
+Mock
+- spy의 일종. 어떤 일이 일어나야 하는지를 아는 spy
+
+Fake
+- simulator
+- 실세계 객체가 하는 것 처럼 입력에 따라 다른 응답을 함.
+- 복잡도와 유지보수를 위해서 가급적 피애햐 함
+```
+
 mocking library를 안 사용하는 것이 더 좋은 것 같다.
 
 ## Boundaries and Mocks
