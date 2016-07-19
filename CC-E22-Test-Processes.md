@@ -22,7 +22,7 @@ public class StackTest {
 public class Stack {
 	public boolean isEmpty() {
 		return false;
-	}
+# 	}
 }
 ```
 
@@ -34,13 +34,15 @@ public class Stack {
 
 fake it은 null, 0, 1, true, false, empty list 등을 반환하는 방법으로 테스트를 성공시키는 기법이다.
 
-이러한 기법을 **fake it till you make it**이라고 한다. 반드시 구현을 해야만 하는 상황이 발생할 때까지는 최대한 fake함으로써 테스트를 성공시키라는 의미이다.
+이러한 기법을 **fake it till you make it**이라고 한다. **반드시 구현을 해야만 하는 상황이 발생할 때까지는 최대한 fake함으로써 테스트를 성공시키라는 의미**이다.
+
+**예측되면 하지마라. 반드시 할 필요가 있을때 그때 해라... <-- 애자일**
 
 ### 1.1 Incrementalism
 
 faking의 목적은 incrementalism이다. 테스트 케이스를 통과시키기 위해 fake(가능한 가장 단순한 방법으로 테스트가 성공하도록)한다. 그 다음 다른 테스트 케이스를 통과시키기 위해 조금 덜 fake한다. 계속 테스트 케이스를 조금 덜 fake하면서 추가하다가 전혀 fake하지 않고 테스트 케이스를 추가할때까지 반복한다.
 
-목적을 이루기 위해 점진적으로 진행하는 것은 시간 낭비가 아니라 시간을 절약하는 것이다. 더 빨리 개발하는 것이다. 조금씩 진행하는 것이 한번에 크게 진행하는 것보다 항상 빠른 방법이다.
+목적을 이루기 위해 점진적으로 진행하는 것은 시간 낭비가 아니라 **시간을 절약**하는 것이다. 더 빨리 개발하는 것이다. 조금씩 진행하는 것이 한번에 크게 진행하는 것보다 항상 빠른 방법이다.
 
 ### 1.2 Getting Stuck
 
@@ -52,19 +54,18 @@ faking의 목적은 incrementalism이다. 테스트 케이스를 통과시키기
 
 테스트를 작성하는 것은 당구를 치는 것과 같다. 좋은 당구 선수는 매 큐를 다음 큐를 생각하며 경기를 한다. 당신이 작성하는 **모든 테스트는 fake될 수 있는 여유를 남겨야 한다**. 더 이상 fake할 수 없을때 까지...테스트를 잘 작성하는 사람은 한번에 모든 것을 구현하려고 하지 않고 다음 테스트 케이스에서 fake하기 위한 여유 공간을 남겨두려고 한다.
 
-이것은 테스트를 작고, 간단한 설계를 갖도록 유지하는 것을 의미한다. 당신은 생각할 수 있는 가장 복잡한 테스트를 작성함으로써 당신이 똑똑하다는 것을 세상에 알리려 하면 안된다. 그 대신, 더 이상 테스트할 것이 없을 때까지 복잡한 테스트 작성을 의도적으로 금해야 한다. "engaing as few brain cells as possible at any given moment"라고 표현한다.
+이것은 **테스트를 작고, 간단한 설계를 갖도록 유지하는 것**을 의미한다. **당신은 생각할 수 있는 가장 복잡한 테스트를 작성함으로써 당신이 똑똑하다는 것을 세상에 알리려 하면 안된다**. 그 대신, 더 이상 테스트할 것이 없을 때까지 복잡한 테스트 작성을 의도적으로 금해야 한다. "engaing as few brain cells as possible at any given moment"라고 표현한다.
 
 다르게 말하면 어떤 함수를 테스트할 때 **outside에서 inside로 접근**해야 한다는 것이다. 이 말은 간단하고 적절한(simpler proper) 테스트 케이스를 먼저 추가하라는 것이다(ex. validating argument, simple queries). 이런 simpler proper 이슈들이 모두 해소되면 보다 복잡한 inner working을 언급할 수 있다.
 
-이렇게 테스트를 추가해 나가면 당신이 정말로 중요한 inner working을 할 때 그 deep inner working이 이미 존재하는 것을 발견하는 경우가 종종 있을 것이다. 복잡한 테스트 케이스를 추가했는데 저절로 테스트가 성공하는...
+이렇게 테스트를 추가해 나가면 **당신이 정말로 중요한 inner working을 할 때 그 deep inner working이 이미 존재**하는 것을 발견하는 경우가 종종 있을 것이다. 복잡한 테스트 케이스를 추가했는데 저절로 테스트가 성공하는...(bowling game, wordwrap의 마지막 테스트와 같은)
 
 ## 2. Stairstep Tests
 
 ### 2.1 볼링 게임 예제
 
-***TODO : 관련 코드 삽입 ***
-
  - 제일 처음에 Game 클래스를 생성하기 위한 canCreateGame 테스트를 추가하다.
+ 	- Game 클래스를 생성하는 대신... 테스트가 있어야만 코드를 작성할 수 있다.
  
     ```
     @Test
@@ -83,11 +84,16 @@ faking의 목적은 incrementalism이다. 테스트 케이스를 통과시키기
     }
     ```
     
- - 여기까지 구현하면 `Game game = new Game();`이 2개의 테스트 케이스에서 중복된다. game을 필드로 추출하고 setup 메소드에서 초기화하도록 rafctoring한다.
+ - 여기까지 구현하면 `Game game = new Game();`이 2개의 테스트 케이스에서 **중복**된다. game을 필드로 추출하고 setup 메소드에서 초기화하도록 rafctoring한다.
  
     ```
     Game g;
 
+	@Before
+    public void setup() {
+        g = new Game();
+    }
+    
     @Test
     public void canCreateGame() {
     }
@@ -99,7 +105,7 @@ faking의 목적은 incrementalism이다. 테스트 케이스를 통과시키기
     ```
     
  - 그러면 canCreateGame은 empty body가 되어 불필요해지므로 삭제한다.
- - gutterGame 테스트 케이스를 추가한다. score 구현시 디폴트 0대신 -1을 반환하여 실패하는지 확인하고, 후에 0으로 변경하여 성공시킨다(faking it. 성고만 확인하는 것이 아니라 실패도 확인).
+ - gutterGame 테스트 케이스를 추가한다. score 구현시 디폴트 0대신 -1을 반환하여 실패하는지 확인하고, 후에 0으로 변경하여 성공시킨다(faking it. 성공만 확인하는 것이 아니라 실패도 확인).
  
     ```
     @Test
@@ -114,7 +120,7 @@ faking의 목적은 incrementalism이다. 테스트 케이스를 통과시키기
 
 ### 2.2 stairstep test
 
-테스트의 유일한 존재 목적이 다음 테스트를 순차적으로 구현하기 위함인 경우(다음 테스트를 구현한 후에는 stairstep test는 삭제된다).
+**테스트의 유일한 존재 목적이 다음 테스트를 순차적으로 구현하기 위함인 경우**(다음 테스트를 구현한 후에는 stairstep test는 삭제된다).
 
 stairstep test는 임시적인 중간 단계 코드로 의미를 갖는다.
 
@@ -171,24 +177,25 @@ public class MainBox {
 
 assert가 compile error를 유발하고, 또 execution error를 유발함으로써 코딩이 일어나도록 하는 것에 주의하라. 이렇게 함으로써 항상 test에서 시작할 수 있다.
 
-**Test Drives**
+**Test Drives** : test가 나를 운전하도록 !!!
 
-**production 코드에 뭔가를 넣고 싶다면 먼저 그렇게 할 수 밖에 없도록 만드는 테스트 코드를 추가하라.** 이게 **test drive**이고, agile, lean development이다. 또 Needs Driven Development이다.
+**production 코드에 뭔가를 넣고 싶다면 먼저 그렇게 할 수 밖에 없도록 만드는 테스트 코드를 추가하라.** 이게 **test drive**이고, **agile, lean development**이다. 또 **Needs Driven Development**이다.
 
 ## 4. Triangulation
 
 [Triangulation](http://msbaek.tumblr.com/post/74259407794/triangulation)
 
-토목/수학에서 말하는 삼각법(물체간의 거리를 측정하는)이 아니라 TDD에서 삼각법은 generalization을 만드는 방법의 하나를 의미한다.
+토목/수학에서 말하는 삼각법(물체간의 거리를 측정하는)이 아니라 TDD에서 삼각법은 **generalization을 만드는 방법**의 하나를 의미한다.
 
-> "As the tests get more specific, the code gets more GENERIC"
+> **"As the tests get more specific, the code gets more GENERIC"**
 
 하나의 테스트가 아니라 여러개의 테스트를 추가함으로써 문제와 해결책을 좀 더 명확히 하는 기법이다. 삼각법이 2개 이상의 지점의 위치를 이용하여 현 위치를 측정하는 것 처럼...
 
-하나의 테스트만 존재할 때는 fake할 수 있다(상수를 반환함으로써). 하지만 상수로 처리 불가한 테스트를 추가하면(삼각법에서 2개 이상의 지점을 사용하는 것처럼) fake할 수 없게 된다.
+**하나의 테스트만 존재할 때는 fake할 수 있다**(상수를 반환함으로써). 하지만 상수로 처리 불가한 테스트를 추가하면(삼각법에서 2개 이상의 지점을 사용하는 것처럼) fake할 수 없게 된다.
 
-서로 다른 계정을 다루는 뱅킹 어플리케이션을 작성하는 것을 가정해 보자. 일단은 savings account(보통 예금), money market account(금융시장 계정)를 다루는...
-이 요구사항은 계층적이다.
+서로 다른 계정을 다루는 뱅킹 어플리케이션을 작성하는 것을 가정해 보자. 일단은 **savings account(보통 예금)**, **money market account(금융시장 계정)**를 다루는...
+
+이 요구사항은 **계층적**이다.
 
 [junit-hierarchicalcontextrunner](https://github.com/bechte/junit-hierarchicalcontextrunner)를 이용해서 계층적 단위 테스트를 작성할 수 있다.
 
