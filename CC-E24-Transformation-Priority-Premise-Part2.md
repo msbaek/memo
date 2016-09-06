@@ -56,7 +56,7 @@ remove duplication
 assertThat(sort(intList(1)), is(intList(1)));
 ```
 
-![](https://api.monosnap.com/rpc/file/download?id=evzK07aikWhgEDVxBsiQQMV9mVrLam
+![](https://api.monosnap.com/rpc/file/download?id=evzK07aikWhgEDVxBsiQQMV9mVrLam)
 
 ### 2.2 transform - constant to variable
 
