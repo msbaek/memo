@@ -1,17 +1,6 @@
 # The Transformation List
 
-> 1. Null
-> 2. Null to Constant
-> 3. Constant to Variable
-> 4. Add Computation
-> 5. Split Flow
-> 6. Variable to Array
-> 7. Array to Container
-> 8. If to While
-> 9. Recurse
-> 10. Iterate
-> 11. Assign
-> 12. Add Case
+![image](https://camo.githubusercontent.com/148b84a1bd7a206b2fe5fd92b7288db2be53ef86/68747470733a2f2f6170692e6d6f6e6f736e61702e636f6d2f7270632f66696c652f646f776e6c6f61643f69643d613770303479674c6d56724a77665452734876656b68574e78726456784b)
 
 ## 1. Null
 
