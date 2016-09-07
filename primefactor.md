@@ -14,20 +14,20 @@
 
 ## 2
 
-- constant to variable
-- split flow
+- constant to variable: `ArrayList<Integer> factors = new ArrayList<>()`
+- split flow: `if(n == 2)`
 - refactor to more general(`if n > 1`)
 
 ## 3
 
-- constant to variable
+- constant to variable: `factors.add(2)` --> `factors.add(n)`
 
 ## 4
 
 - split flow: `if n % 2 == 0`
 - split flow: `if n > 1`
 - refactor: move if to outer
-- refactor: remove dup. in test. `isListOf(2, 2)`
+- refactor: remove dup. in test. `is(Arrays.asList(2, 2))` --> `isListOf(2, 2)`
 
 ## 5, 6, 7
 

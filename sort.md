@@ -48,6 +48,8 @@ transformation priority premise를 무시해서 성능이 않 좋은 알고리�
 
 ## (2, 1)로 되돌아가자.
 
+인자로 전달받은 list를 변경(assign)하기 보다는 새로운 리스트(sorted)를 만드는 것이 좋다.
+
 - split flow: `if(list.size() <= 1)`, `if(list.get(0) > list.get(1))`
 - add computation: `sorted.add(list.get(1));` ...
 
