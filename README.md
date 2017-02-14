@@ -11,3 +11,5 @@
 - 기타
   - [ELK 서울 지하철 예제](https://github.com/msbaek/memo/blob/master/ELK-with-Seoul-Metro.md)
   - [mac tools](https://github.com/msbaek/memo/blob/master/mac-tools.md)
+  - [2012 제주대 강의-고급 객체지향 자바 개발론](https://github.com/msbaek/jeju-univ-2012)
+  - [객체지향의 정수/핵심 ?](https://github.com/msbaek/memo/blob/master/core-of-oop.md)
