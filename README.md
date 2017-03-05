@@ -11,6 +11,7 @@
 - Refactoring 예제
   - [토비의 봄 TV에서 타입 의존적 코드 제거 기법](https://github.com/msbaek/memo/blob/master/type-subclassing2.md)
   - [Testing Refactoring Legacy Code](https://github.com/msbaek/trip-service): testing하기 어려운 코드를 테스트를 추가하면서 리팩토링하는 과정
+  - [The Clean Code Talks — Inheritance, Polymorphism, & Testing](https://github.com/msbaek/memo/blob/master/Inheritance-Polymorphism-Testing.md)
 - 기타
   - [ELK 서울 지하철 예제](https://github.com/msbaek/memo/blob/master/ELK-with-Seoul-Metro.md)
   - [mac tools](https://github.com/msbaek/memo/blob/master/mac-tools.md)
