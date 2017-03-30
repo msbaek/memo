@@ -13,6 +13,7 @@
 	- [진화적설계.mmap](https://github.com/msbaek/memo/blob/master/evolutionary-architecture.mmap) - [진화적설계.pdf](https://github.com/msbaek/memo/blob/master/evolutionary-architecture.pdf)
     - [Law of Demeter](https://github.com/msbaek/memo/blob/master/law-of-demeter.md)
     - [Tell Don't Ask](https://github.com/msbaek/memo/blob/master/Tell-Dont-Ask.jpeg)
+    - [Writing Testable Code](https://github.com/msbaek/memo/blob/master/WritingTestableCode.md)
 	- [composition-over-inheritance](https://github.com/msbaek/memo/blob/master/composition-over-inheritance.md)
 - Refactoring 예제
   - [토비의 봄 TV에서 타입 의존적 코드 제거 기법](https://github.com/msbaek/memo/blob/master/type-subclassing2.md)
