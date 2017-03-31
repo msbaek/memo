@@ -33,6 +33,18 @@ ideaVim
 - Find members in current file: Cmd + F12
 - Show recently changed files: Cmd + Shift + E
     
+## Java8 Migration Feature 활용하기
+
+![](https://api.monosnap.com/rpc/file/download?id=NpP7RcK6c8N6cuNSpqQMUqdLG5jMNv)
+
+위와 같이 설정에서 "Editor / Inspections" 를 선택하고 Java8 하위의 
+
+- Lambda can be replaced with method call
+- Loop can be collapsed with Stream API
+- Loop can be collapsed with Arrays.setAll()
+
+등을 선택하고 Severity를 "Week Warning"으로 변경하면 Editor에서 해당 기능을 사용할 수 있을 때 지정된 색으로 보여준다. 또 F2를 눌러서 next warning/error로 이동시 선택되고, show intention actions(opt+space)를 누르면 lambda, stream, method reference 등으로 변환해 준다.
+
 ## overriden hot key
 
 - select in project view: Ctrl + Opt + L
