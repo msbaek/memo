@@ -16,6 +16,7 @@
     - [Writing Testable Code](https://github.com/msbaek/memo/blob/master/WritingTestableCode.md)
 	- [composition-over-inheritance](https://github.com/msbaek/memo/blob/master/composition-over-inheritance.md)
 	- [dao-vs-repository](https://github.com/msbaek/memo/blob/master/dao-vs-repository.md)
+    - [Business Logic Organization Patterns](https://github.com/msbaek/memo/blob/master/Business-Logic-Organization-Patterns.md)
 - Refactoring 예제
   - [토비의 봄 TV에서 타입 의존적 코드 제거 기법](https://github.com/msbaek/memo/blob/master/type-subclassing2.md)
   - [Testing Refactoring Legacy Code](https://github.com/msbaek/trip-service): testing하기 어려운 코드를 테스트를 추가하면서 리팩토링하는 과정
