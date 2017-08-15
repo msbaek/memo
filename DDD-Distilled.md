@@ -113,5 +113,188 @@ bc에서 뺀 모델들은 각기 자신의 BC를 갖느다.
 
 DDD 프로젝트에는 항시 다수의 BC가 존재한다.
 
-VIDEO 16 OF 66 FROM 
+## Delivering Ubiquotous Language
 
+![](https://api.monosnap.com/rpc/file/download?id=Bt0A9m1ik77kitxVmKhRYcYxKL1jvh)
+
+시나리오를 완성시키기 위해 다음과 같은 질문을 해 본다.
+
+1. 누가 이 행위를 하는가 ?
+2. 누가 이 행위에 관심이 있는가 ?
+
+![](https://api.monosnap.com/rpc/file/download?id=UHSGgIJf267G4ayCbueEdYootqlCrL)
+
+![](https://api.monosnap.com/rpc/file/download?id=Lidpvg7Vh9JdzMpcJ3aNIwJ3JRNW4H)
+
+![](https://api.monosnap.com/rpc/file/download?id=VlufNPyjzDOWNr5CbYpIfHZeiExuP2)
+
+![](https://api.monosnap.com/rpc/file/download?id=eyB5DFZ9dgv66QgDNKWRKPqzOywWAf)
+
+![](https://api.monosnap.com/rpc/file/download?id=tNHffvnJazBzCObPQEzWTv8PT6k2Or)
+
+이런 수준의 잘 작성된 시니라오가 있으면 테스트를 작성할 수 있다.
+
+![](https://api.monosnap.com/rpc/file/download?id=PeLti7190je3eEjsyMbgB6HR1pkBN9)
+
+![](https://api.monosnap.com/rpc/file/download?id=vaV1NiUjFYg6Imnf3802ov9AsE7cH5)
+
+## Architecture
+
+![](https://api.monosnap.com/rpc/file/download?id=HLvvLqkeg7xTFFm9nUoXOWBNKHw1yz)
+
+![](https://api.monosnap.com/rpc/file/download?id=UYyiUcBl0PhEzpGOAr0If8R4gq0lwH)
+
+이외에 
+
+- EDA: event sourcing
+- CQRS 
+- Reactive and Actor Model
+- REST
+- MSA
+
+등이 존재
+
+# Strategic Design with Subdomains
+
+BC : SD = 1 : 1
+
+## What Is a Subdomain?
+
+![](https://api.monosnap.com/rpc/file/download?id=X4Ntf181J9EMJdgMbGAR5QvXnDBxbS)
+
+![](https://api.monosnap.com/rpc/file/download?id=qthjvfowZZ4dRFxTbsaXjX7YDYdVOZ)
+
+![](https://api.monosnap.com/rpc/file/download?id=6NwIprFSb522Gyg4ZrtzrXldsNbcuZ)
+
+## Types of Subdomains
+
+![](https://api.monosnap.com/rpc/file/download?id=3dDtRrbixVUnslZsesULPMzy7hRChx)
+
+![](https://api.monosnap.com/rpc/file/download?id=Q9uYfNgVtc0JOaRBzZr2Ftln1MURCX)
+
+![](https://api.monosnap.com/rpc/file/download?id=Z9yn6vz7nQdXvnVuN3TZARnZnlU2s6)
+
+## Dealing with Complexity
+
+![](https://api.monosnap.com/rpc/file/download?id=Y8Tj01nQKzm473Nx7Ak10VA0b6dcai)
+
+![](https://api.monosnap.com/rpc/file/download?id=XdP3ozgckwuc5XbjK5rkbSiv3z1Jb4)
+
+# Strategic Design with Context Mapping
+
+![](https://api.monosnap.com/rpc/file/download?id=xi1qkOKzv5oru2musFDmEVo39GZ01C)
+
+## kinds of Mappings
+
+![](https://api.monosnap.com/rpc/file/download?id=Skf3B6FWyo17wxOzhZlXNiJ09yTuXT)
+
+## Partnership
+
+![](https://api.monosnap.com/rpc/file/download?id=JWUsYi4eMvlfnEvH0vk9WCQUHLu5JU)
+
+두개의 팀이 두개의 BC에서 일하는데 공통의 목적. 상호 지원. 
+강력한 의존성(그래서 두꺼운 선으로 표현)
+
+## Shared Kernel
+
+![](https://api.monosnap.com/rpc/file/download?id=xzTRT6nQcLu5FuMoR00N3vLBgu1zmH)
+
+## Customer-Supplier
+
+![](https://api.monosnap.com/rpc/file/download?id=Ms2Ag9lnnLGKN39lVf85r2tf78FC3f)
+
+upstream downstream 관계가 두 팀간에 존재하는 경우
+
+## Conformist
+
+![](https://api.monosnap.com/rpc/file/download?id=HR9bllZ5dhdfH71Qbqo2smqCDA6gHT)
+
+## Anti-corruption Layer
+
+![](https://api.monosnap.com/rpc/file/download?id=rlmCMz7YEGQAWlmtKd0sQtEOd4YExf)
+
+ACL 때문에 team2의 모델은 team1의 모델과 다를 수도 있다(위 그림처럼)
+
+## Open Host Service
+
+![](https://api.monosnap.com/rpc/file/download?id=hlbuZoYOz6IkHxp4xs2Pnf6XI0aAY8)
+
+## Published Language
+
+![](https://api.monosnap.com/rpc/file/download?id=jUCO5gDUArTHyqEikobwr8K2346KiE)
+
+## Separate Ways
+
+![](https://api.monosnap.com/rpc/file/download?id=AJA6c0pEPocscUoPIFB7EwzznZkISs)
+
+어떤 이유에서 team2가 team1에서 받은 모델을 변경하여 독자적인 방식으로 사용하는 경우
+
+## Big Ball of Mud
+
+![](https://api.monosnap.com/rpc/file/download?id=4NYmKdBmJ7LrYIgPMP14PNtpM4J7xe)
+
+## Making Good Use of Context Mapping
+
+![](https://api.monosnap.com/rpc/file/download?id=wO5qpEv9L4b6yk2aed3rpVU9DqmuzD)
+
+## RPC with SOAP
+
+![](https://api.monosnap.com/rpc/file/download?id=IA3cwQKrr0zTfP2sNlHytIgTPhq36i)
+
+![](https://api.monosnap.com/rpc/file/download?id=E9SQF7FRv1KDfxdYiyjInjroaTOA09)
+
+![](https://api.monosnap.com/rpc/file/download?id=ASUcn1w7OMVf4YKWY064yVk4FSXtD8)
+
+## RESTful HTTP
+
+![](https://api.monosnap.com/rpc/file/download?id=vmeAcUPXXQ3fE0vivPsXMnlkc0lU13)
+
+![](https://api.monosnap.com/rpc/file/download?id=O8dM7Wyw14hEIXlXT6gTScMmavokTM)
+
+## Messaging
+
+![](https://api.monosnap.com/rpc/file/download?id=hcJf6pfJ66BxV1qNz56L9v0GMReFS6)
+
+![](https://api.monosnap.com/rpc/file/download?id=Gs8d0iemjU9JwFftadI1THWd38mCGj)
+
+![](https://api.monosnap.com/rpc/file/download?id=CyxSQNGAuFJXSEBbmR7imidSvVG016)
+
+![](https://api.monosnap.com/rpc/file/download?id=QdGzj8rPqtAV99gL9u9DQRiS2r5r4S)
+
+## An Example in Context Mapping
+
+insurance company를 예제로
+
+![](https://api.monosnap.com/rpc/file/download?id=EGMdzyQXkrDDs670BqXHPjDjpxRKvd)
+
+![](https://api.monosnap.com/rpc/file/download?id=ySo7jk4MwjARKYw1pkvX6kY5afiqTs)
+
+![](https://api.monosnap.com/rpc/file/download?id=H7I3uo0InVAQTLBlR9HyxP3e6e2BvP)
+
+![](https://api.monosnap.com/rpc/file/download?id=jDrM2Thc7MFgDpa3DYH8U9PUP0OXyi)
+
+![](https://api.monosnap.com/rpc/file/download?id=lEHdJBszXhSByYcQZO4oXFzEjXly2n)
+
+![](https://api.monosnap.com/rpc/file/download?id=Egw7weAjN5wipRQ9WD0eIATzCm0xqD)
+
+## Summary
+
+![](https://api.monosnap.com/rpc/file/download?id=cH4uuo3LKFpTmQY8LFrwOTtQ72b78c)
+
+# Tactical Design with Aggregates
+
+## Introduction
+
+## Why Used
+
+## Aggregate Rules of Thumb
+
+## Modeling Aggregates
+
+## Choose Your Abstractions Carefully
+
+## Right-Sizing Aggregates
+
+## Testable Units
+
+## Summary
