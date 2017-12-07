@@ -10,7 +10,7 @@
 6. Refactoring Tests
 
 ## 1. Fake it till you make it
-```
+```java
 public class StackTest {
 	@Test
 	public void uponCreation_stackWillBeEmpty() {
