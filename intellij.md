@@ -97,5 +97,7 @@ jojoldu로 검색하여 Translator plugin 설치
 * opt+2하면 cancelOrder로 치환해줌
  
 ## 참고자료
-[인텔리j 활용 꿀팁 42가지 정리](http://www.popit.kr/인텔리j-활용-꿀팁-42가지-정리/)
-[Collaboration within IntelliJ IDEA](https://www.youtube.com/watch?v=wBXSUdT1jX0)
+
+- [인텔리j 활용 꿀팁 42가지 정리](http://www.popit.kr/인텔리j-활용-꿀팁-42가지-정리/)
+- [Collaboration within IntelliJ IDEA](https://www.youtube.com/watch?v=wBXSUdT1jX0)
+- [aafwu00님의 IntelliJ Tip 모음](https://gist.github.com/aafwu00/e48a5b16318ca2c5b3c0f8e32f9da886)
