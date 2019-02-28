@@ -4,6 +4,7 @@
 - [Tyrant Client TDD](https://github.com/msbaek/tyrant-client-tdd)
 	- Key Value Store인 tokyo-tyrant의 클라이언트를 TDD로 구현하는 튜토리얼
 - [Advanced TDD](https://github.com/msbaek/memo/blob/master/AdvancedTDD.md)
+	- [Humbe Object Pattern](https://github.com/msbaek/memo/blob/master/HumbleObjectPattern.md)
 - [ATDD](https://github.com/msbaek/atdd-example/README.md)
 - [London School vs Traditional TDD](https://github.com/msbaek/memo/blob/master/classic-london-school-tdd.md)
 	- [Triangulation](https://github.com/msbaek/memo/blob/master/Triangulation.md)
