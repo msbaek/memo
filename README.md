@@ -24,6 +24,8 @@
   - [토비의 봄 TV에서 타입 의존적 코드 제거 기법](https://github.com/msbaek/memo/blob/master/type-subclassing2.md)
   - [Testing Refactoring Legacy Code](https://github.com/msbaek/trip-service): testing하기 어려운 코드를 테스트를 추가하면서 리팩토링하는 과정
   - [The Clean Code Talks — Inheritance, Polymorphism, & Testing](https://github.com/msbaek/memo/blob/master/Inheritance-Polymorphism-Testing.md)
+- 리팩토링 기법
+	- [Composed Method](https://github.com/msbaek/memo/blob/master/refactoring-tech/composed_method.md)
 - 주요 개념
   - [Humble Object Pattern](https://github.com/msbaek/memo/blob/master/CC-E23-Mocking-Part2.md#humble-object)
   - [Replace Type Code with Subclasses](http://bit.ly/2Iw9Cx7)
