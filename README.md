@@ -12,6 +12,7 @@
 - [OOP 2015 Keynote - Robert C. Martin ("Uncle Bob"): Agility and Architecture](https://github.com/msbaek/memo/blob/master/architecture.md)
 - [REST Mock Server 구축 방법 3가지](https://github.com/msbaek/memo/blob/master/mock_rest_test.md)
 - [IntelliJ 설치 & 설정](https://github.com/msbaek/memo/blob/master/intellij.md)
+- [IntelliJ 2020 정리](https://github.com/msbaek/memo/blob/master/intellij-2020.md)
 - [Collaboration within IntelliJ IDEA](https://github.com/msbaek/memo/blob/master/CollaborationWithinIntelliJ.md)
 - 객체지향
 	- [진화적설계.mmap](https://github.com/msbaek/memo/blob/master/evolutionary-architecture.mmap) - [진화적설계.pdf](https://github.com/msbaek/memo/blob/master/evolutionary-architecture.pdf)
