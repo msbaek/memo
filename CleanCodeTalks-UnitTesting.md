@@ -5,9 +5,8 @@
 - 테스트 작성에 대해서는 비법이 없다.
 - 테스트 가능한 코드를 작성하는 비법만이 존재한다.
     - Good OO
-    - Dependency Injection
+    - Dependency Injection(Inversion)
     - Test Driven Development
-    - A whole lot about un-testable code
     
 ## Progression of Testing
 
@@ -24,20 +23,20 @@
 
 > “Functional/Medium Tests”
 
-- we should break down the app into sub-systems and test each sub-system with external dependencies replaced by simulators
-- Test a sub-system of the app with simulators for external dependencies
-- Can simulate conditions not possible in scenario tests
-- Developers can run these before submitting
+- 애플리케이션을 서브시스템으로 분해하고 외부 의존성을 simulator로 치환해서 각 서브시스템을 테스트
+- 시나리오 테스트에서는 불가한 조건을 시뮬레이트할 수 있음
+- 개발자들은 이 테스트를 코드를 제출(commit, PR, merge 등) 전에 실행해 볼 수 있음
 
 ### Stage 3: Unit Tests
 
 > “Unit/Small Tests”
 
-- Since testing smaller pieces gave us all of these benefits can we break the unit-of-test even further into yet smaller pieces?
-- Test individual classes in isolation
-- Can simulate all error conditions
-- Developers can run these after each file modification.
-- Very Fast & No flakiness
+- 작은 영역의 코드를 테스트하는 것은 많은 혜택을 주므로 테스트 단위를 더 작은 단위로 나눌 수 있음
+- 각 클래스를 격리하여 테스트
+- 모든 오류 조건들을 시뮬레이트할 수 있음
+- 개발자들은 파일을 수정할 때마다 단위 테스트를 실행할 수 있음
+- 빨리 빠르고 테스트가 깨질 확률이 적음 
+
 
 | Test Type	| Definition | Issues |
 |-----------|------------|--------|
