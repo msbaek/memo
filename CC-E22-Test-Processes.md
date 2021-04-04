@@ -183,7 +183,7 @@ assert가 compile error를 유발하고, 또 execution error를 유발함으로�
 
 ## 4. Triangulation
 
-[Triangulation](http://msbaek.tumblr.com/post/74259407794/triangulation)
+[Triangulation](https://github.com/msbaek/memo/blob/HEAD/Triangulation.md)
 
 토목/수학에서 말하는 삼각법(물체간의 거리를 측정하는)이 아니라 TDD에서 삼각법은 **generalization을 만드는 방법**의 하나를 의미한다.
 
