@@ -4,6 +4,13 @@
 
 > If I get stuck and I don’t know how a complex algorithm should work I’ll write a test for an error case. Then I’ll write a test for the simplest non-error case I can think of and return a hard coded value. Then I’ll write another test case and see if I can figure out the algorithm at that point. In doing so I gain some momentum and perhaps some insight in how the algorithm should behave on an edge case and a few normal cases.
 
+> first write a test with one assertion
+> the tested method returns a constant
+> then write another assert for the same method
+> → now you have to abstract the correct implementation of the method to make it pass
+> time to remove duplication
+> from TDD by Example, Kent Beck
+
 ## Triangulation
 
 어떻게 복잡한 알고리즘을 구현할 지 모르는 상태에 빠지면(getting stuck되면)
@@ -15,7 +22,7 @@
 
 이러한 기법은 삼각측량법(triangulation)이라고 한다. 이 방법은 천문 항법(celestial navigation)에 수천년 동안 사용되어 왔다.
 
-움직임을 확인하기 위해서는 하나 보다는 2개 이상의 지평선(horizon)의 지점과 비교하는 것이 쉽다. 
+움직임을 확인하기 위해서는 하나 보다는 2개 이상의 지평선(horizon)의 지점과 비교하는 것이 쉽다.
 
 코딩도 마찬가지다 하나가 아니라 둘 이상의 테스트 케이스를 조사하는 것이 알고리즘의 동작 방식을 이해하기 쉽게 한다.
 
