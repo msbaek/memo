@@ -4,12 +4,17 @@
 
 > If I get stuck and I don’t know how a complex algorithm should work I’ll write a test for an error case. Then I’ll write a test for the simplest non-error case I can think of and return a hard coded value. Then I’ll write another test case and see if I can figure out the algorithm at that point. In doing so I gain some momentum and perhaps some insight in how the algorithm should behave on an edge case and a few normal cases.
 
-> first write a test with one assertion
-> the tested method returns a constant
-> then write another assert for the same method
-> → now you have to abstract the correct implementation of the method to make it pass
-> time to remove duplication
-> from TDD by Example, Kent Beck
+- first write a test with one assertion
+
+- the tested method returns a constant
+
+- then write another assert for the same method
+
+- → now you have to abstract the correct implementation of the method to make it pass
+
+- time to remove duplication
+
+- from TDD by Example, Kent Beck
 
 ## Triangulation
 
