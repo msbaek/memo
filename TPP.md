@@ -34,6 +34,7 @@
 - `Nil → Constant`
   - 현재 테스트를 통과시키도록 상수를 반환
 - `Constant → Variable`
+  - Triangulate를 하면 Constant로 테스트를 통과시킬 수 없게 됨
   - 이러한 변환들이 계속 매우 구체적인 상태에서 살짝 더 일반적인 상태로 옮김
   - 이런 변환은 모두 일반화, 즉 코드가 이전보다 더 다양한 제약 조건을 처리할 수 있도록 하는 방법임
 - `Unconditional → Selection`
