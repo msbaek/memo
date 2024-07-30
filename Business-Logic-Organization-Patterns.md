@@ -12,7 +12,7 @@
 
 **이 접근법의 중요한 특성은 아래 그림과 같이 행위를 구현하는 클래스(OrderService)가 상태를 저장하는 클래스(Order)와 분리된다는 것이다.**
 
-![](https://api.monosnap.com/rpc/file/download?id=RpdvAN360qedlxqEa2xUnRYmDFHkvV)
+![img.png](img.png)
 
 스크립트는 보통 Service 클래스(OrderService)에 위치한다. Service는 하나의 요청과 해당 요청에 대한 시스템 행위에 대해서 하나의 메소드를 갖는다. 이 메소드가 해당 요청에 대한 비즈니스 로직을 구현한다. 데이터 객체(Order)는 행위가 없거나 거의 갖지 않는다.
 
@@ -32,7 +32,7 @@ Monolithic Application이 지속적으로 커지는 습성이 있는 것과 같�
 
 객체지향설계에서 비즈니스 로직은 객체모델로 구성된다. 객체모델은 적은 수의 클래스들의 네트워크로 구성된다. 이런 설계 방식에서는 아래 그림과 같이 행위나 상태만 갖는 클래스들이 존재할 수는 있지만 대부분의 경우는 행위와 상태를 모두 갖는다.
 
-![](https://api.monosnap.com/rpc/file/download?id=fRrRkwS4OVv0O3F0mWWPteHAW1ZzrS)
+![img_1.png](img_1.png)
 
 Transaction Script와 동일하게 OrderService는 각 요청과 해당 요청에 대한 시스템 행위에 대해 하나의 메소드를 갖는다. Domain Model Pattern에서 Service 메소드는 대개 단순한다. Service 메소드가 항상 도메인 객체에게 위임하기 때문이다. 도메인 객체는 비즈니스 로직의 대부분을 갖는다.
 

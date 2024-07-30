@@ -1,6 +1,45 @@
 # IntelliJ
 
-[TOC]
+<!-- TOC -->
+* [IntelliJ](#intellij)
+  * [설치](#설치)
+      * [Create Launcher Script](#create-launcher-script)
+  * [유용한 설정 / 기능](#유용한-설정--기능)
+      * [IntelliJ에서 Json 작업 쉽게 하기](#intellij에서-json-작업-쉽게-하기)
+      * [IntelliJ를 JIRA와 연동해서 사용하기](#intellij를-jira와-연동해서-사용하기)
+      * [git flow integration](#git-flow-integration)
+      * [method body template 설정](#method-body-template-설정)
+      * [f2 눌러서 다음 에러로 이동할 때 warning은 무시하기](#f2-눌러서-다음-에러로-이동할-때-warning은-무시하기)
+      * [show whitespaces](#show-whitespaces)
+      * [align when multiline](#align-when-multiline)
+      * [Wrap Chained Method Calls](#wrap-chained-method-calls)
+      * [Do not wrap after single annotation](#do-not-wrap-after-single-annotation)
+      * [Inspections(힌트를 warning으로 보여주기)](#inspections힌트를-warning으로-보여주기)
+      * [메소드 내의 여러 곳의 return 문장을 이동하기](#메소드-내의-여러-곳의-return-문장을-이동하기)
+      * [동적으로 Pattern 객체가 생성되는 코드들을 IntelliJ에서 inspection으로 찾아내기](#동적으로-pattern-객체가-생성되는-코드들을-intellij에서-inspection으로-찾아내기)
+  * [Plugins](#plugins)
+      * [한영 번역](#한영-번역)
+      * [grepConsole](#grepconsole)
+      * [checkStyle-idea, pmd plugin, findbugs-idea](#checkstyle-idea-pmd-plugin-findbugs-idea)
+      * [gradle dependency helper](#gradle-dependency-helper)
+      * [IdeaVim](#ideavim)
+      * [Live Edit Tool](#live-edit-tool)
+      * [Lombok](#lombok)
+      * [Nyan Progress bar](#nyan-progress-bar)
+      * [Nyan Tray](#nyan-tray)
+      * [http plugin](#http-plugin)
+      * [code smells](#code-smells)
+      * [Grazie](#grazie)
+  * [Trouble Shootings](#trouble-shootings)
+      * [VI에서 방향이동 누르고 있어도 한번만 이동되는 문제 해결책](#vi에서-방향이동-누르고-있어도-한번만-이동되는-문제-해결책)
+      * [Lombok이 동작하지 않는 문제](#lombok이-동작하지-않는-문제)
+      * ["No .git director found!” 오류](#no-git-director-found-오류)
+      * [compile heap size 설정하기](#compile-heap-size-설정하기)
+      * [빌드 시 gc overhead limit exceeded 에러 떨어지는 경우 발생](#빌드-시-gc-overhead-limit-exceeded-에러-떨어지는-경우-발생)
+  * [Shortcuts](#shortcuts)
+  * [참고문서](#참고문서)
+<!-- TOC -->
+
 ## 설치
 
 #### Create Launcher Script
@@ -107,16 +146,6 @@ https://jojoldu.tistory.com/266
 
 #### code smells
 https://plugins.jetbrains.com/plugin/14016-intellijdeodorant
-
-#### codota plugin
-- ^+space: basic completion
-- ^+shift+space: smart completion —> ^+shift+z
-- opt+space: quick definition
-- ^+shift+o: get relevant example
-
-#### Key Promoter X
-- https://plugins.jetbrains.com/plugin/9792-key-promoter-x/
-- IDEㅔ서 마우스를 사용하면 단축키를 보여줌
 
 #### Grazie
 - https://blog.jetbrains.com/idea/2019/11/meet-grazie-the-ultimate-spelling-grammar-and-style-checker-for-intellij-idea/

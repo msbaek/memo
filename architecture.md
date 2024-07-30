@@ -6,7 +6,7 @@
 
 - Interface(controller, Delivery Mechanism)에서는 사용자의 요청을 RequestModel이라는 DS(Data Structure)에 담고
 - Application Layer에 있는 Interactor에 전달함으로써 사용자 요청 처리를 요구한다.
-	- 이때 Interactor는 Interface Layer에 노출된 Boundary Interface(1)를 구현하고, Interface Layer는 이 Boundary Interface를 사용한다.
+    - 이때 Interactor는 Interface Layer에 노출된 Boundary Interface(1)를 구현하고, Interface Layer는 이 Boundary Interface를 사용한다.
 
 ```	
 Application Logic vs Domain Logic
@@ -14,7 +14,6 @@ Application Logic vs Domain Logic
 - Application Logic: 게시판을 구현하는 Application(System)마다 달라질 수 있는 로직
 ```
 
-	
 ![img.png](architecture_02.png)
 
 - Interactor(Usecase Handler, Service Object)는 RequestModel에 있는 값을 이용해서 Repository를 통해 Entity를 얻고, Entity에게 요청 처리를 위임한다.
@@ -22,7 +21,7 @@ Application Logic vs Domain Logic
 ![img.png](architecture_03.png)
 
 - Interactor는 처리 결과를 Interface Layer에 전달하기 위해 ResultModel이라는 DS를 생성하고 값을 채운다.
-![img_1.png](architecture_04.png)
+  ![img_1.png](architecture_04.png)
 
 - Interactor는 Interface Layer가 제공하는 Boundary Interface(2)를 통해 ResultModel을 반환한다.
 
@@ -31,7 +30,7 @@ Application Logic vs Domain Logic
 ![img_2.png](architecture_05.png)
 
 - Interactor는 ResponseModel을 Boundary 인터페이스를 통해 Interface Layer에 전달하다.
-	- Interactor는 Interface Layer의 Presenter가 구현하는 Boundary Interface를 사용한다.
+    - Interactor는 Interface Layer의 Presenter가 구현하는 Boundary Interface를 사용한다.
 - Presenter는 ResponseModel을 가지고 ViewModel을 생성하고 View에 전달한다.
 - View는 ViewModel을 화면에 출력한다.
 
@@ -56,10 +55,11 @@ responseModel은 도메인에서 사용하는 type, value를 그대로 사용하
 
 ![img_4.png](architecture_07.png)
 
-- Interactor가 Database를 사용하기 위해 EntityGateway(Repository Interface)를 사용하지만 실제 구현은 persistence layer에 존재하는 EntityGatewayImplementation이 제공
+- Interactor가 Database를 사용하기 위해 EntityGateway(Repository Interface)를 사용하지만 실제 구현은 persistence layer에 존재하는
+  EntityGatewayImplementation이 제공
 - Runtime 의존성은 Application -> Persistence로 흐르지만 소스 코드의 의존성은 Persistence에서 Application Layer로 향함
 
-이게 [DIP(Dependency Inversion Principle)](https://www.youtube.com/watch?v=mI1PsrgogCw)이다. 
+이게 [DIP(Dependency Inversion Principle)](https://www.youtube.com/watch?v=mI1PsrgogCw)이다.
 
 이를 통해 Interface/Persistence Layer의 구현의 변경이 Applcation/Domain Layer에 영향을 미치지 않게 된다.
 
