@@ -1,6 +1,6 @@
 # The Transformation List
 
-![image](https://camo.githubusercontent.com/148b84a1bd7a206b2fe5fd92b7288db2be53ef86/68747470733a2f2f6170692e6d6f6e6f736e61702e636f6d2f7270632f66696c652f646f776e6c6f61643f69643d613770303479674c6d56724a77665452734876656b68574e78726456784b)
+![TransformationList.png](TransformationList.png)
 
 ## 1. Null
 
@@ -15,7 +15,7 @@ public void factors() {
 
 ## 2. Null to Constant
 
-![image](https://api.monosnap.com/rpc/file/download?id=flvtaMMdZgcI0KusVgoEEWFSXDlTtF)
+![img_4.png](img_4.png)
 
 위에서 **null** 대신 **new ArrayList<Integer>()**로 변경하는 것이 Null to Constant Transformation이다.
 
@@ -25,15 +25,15 @@ constant를 variable이나 function의 argument로 변환한다.
 
 ex1). `return new ArrayList<Integer>();`를 변수로 변경하는 것
 
-![image](https://api.monosnap.com/rpc/file/download?id=XkRFm0Uh4aEY3ch5nBKyLYi9ATqucP)
+![img_5.png](img_5.png)
 
 ex2). `factors.add(2)`를 `factors.add(n)`으로 변경하는 것
 
-![image](https://api.monosnap.com/rpc/file/download?id=d60blRT5CKhVyF4aKm0sC2YVbSQ58O)
+![img_6.png](img_6.png)
 
 ex3). `n % 2`의 2를 아래와 같이 변수(divisor)로 변환하는 것.
 
-![image](https://api.monosnap.com/rpc/file/download?id=5KYM7xTfutQirLWAnF9OKjp87IohmM)
+![img_7.png](img_7.png)
 
 ## 4. Add Computation
 
@@ -41,7 +41,7 @@ ex3). `n % 2`의 2를 아래와 같이 변수(divisor)로 변환하는 것.
 
 이 변환은 수학 계산 등을 할 수 있고, 다른 함수를 호출할 수도 있다. 하지만 이미 존재하는 변수의 상태를 변경할 수는 없다.
 
-![image](https://api.monosnap.com/rpc/file/download?id=h7SVVn0pOtySd6myarWnQ03WRPSC5N)
+![img_8.png](img_8.png)
 
 위 예에서 `if(n > 1), if(n % 2 == 0), n /= 2` 가 transformation에 해당한다.
 
@@ -53,21 +53,19 @@ ex3). `n % 2`의 2를 아래와 같이 변수(divisor)로 변환하는 것.
 
 - 2에 대한 테스트를 성공시키기 위해 도입된 `if(n == 2)`
 
-![image](https://api.monosnap.com/rpc/file/download?id=NpWNrEGGzPT9tTTaGNu8ICjX4Ion6w)
+![img_9.png](img_9.png)
 
 - 4에 대한 테스트를 성공시키기 위해 도입된 `if(n % 2 == 0)`
 
-![image](https://api.monosnap.com/rpc/file/download?id=oMtlLjM4h39wEXZ6ufGi9tRQU3fmHu)
-
+![img_10.png](img_10.png)
 
 ## 6. Variable to Array
 
 아래 stack의 예제에서와 같이 **one-to-many**에 대처하는 기법이다. 
 
-![image](https://api.monosnap.com/rpc/file/download?id=8FUU7jIpIg094mOhbxt3CMpxRu6UX6)
+![img_11.png](img_11.png)
 
-
-![image](https://api.monosnap.com/rpc/file/download?id=Lim3FsdKjO2r8XmriRYCMhGNM3Zx8I)
+![img_12.png](img_12.png)
 
 이 transformation은 딱 하나의 값에 대해서 동작하는 코드를 둘 이상의 값에 대해서 동작하도록 만들때 필요한 기법이다.
 
@@ -84,13 +82,13 @@ stack에서 `int [] elements = new int[2]`를 `List<Integer> elements = new Arra
 
 예. 8에 대한 테스트를 성공시키기 위해서
 
-![image](https://api.monosnap.com/rpc/file/download?id=HKogEkG5nwwJVUtw349ysYFagXhzq9)
+![img_13.png](img_13.png)
 
 `if (n % 2 == 0) {`를 `while (n % 2 == 0) {`로 변경
 
 예. 9에 대한 테스트를 성공시키기 위해.
 
-![image](https://api.monosnap.com/rpc/file/download?id=3MeX6Pcsg4JTmNsOEtDctjOjKKj5zj)
+![img_14.png](img_14.png)
 
 에서 `if(n > 1) {`를 `while(n > 1) {`로 변환하고 `factors.add(divisor);` 다음에 `divisor++;`를 추가
 
@@ -102,7 +100,7 @@ Recurse transformation은 방치된(neglected)/잊혀진(forgotten) transformati
 
 예. e19 wordWrap
 
-![image](https://api.monosnap.com/rpc/file/download?id=jiKyPjxUXUsk3dmaoxUxg3yiu7TAeB)
+![img_15.png](img_15.png)
 
 이전 코드에서 마지막 줄에서 loop을 사용하지 않기 때문에 마지막 테스트(xxx)는 실패한다. 새로운 코드와 같이 마지막 라인에 recursion transformation을 적용하면 간단히 해결된다.
 
@@ -110,7 +108,7 @@ Recurse transformation은 방치된(neglected)/잊혀진(forgotten) transformati
 
 이 transformation은 반복되어야 하는 계산 로직이 있는데 어떠한 이유로 recursion은 사용하지 않기를 원할 때 사용한다. 대개의 경우 for loop를 사용한다.
 
-![image](https://api.monosnap.com/rpc/file/download?id=jCq0xtWw0tQwRPRF2WmsVV4cR9FRJu)
+![img_16.png](img_16.png)
 
 ## 11. Assign
 
@@ -128,6 +126,6 @@ Recurse transformation은 방치된(neglected)/잊혀진(forgotten) transformati
 
 이미 분리된 흐림(split flow)가 있는데 더 분리하고자 할 때 이 transformation을 사용한다. 기 존재하는 if 문장에 else-if를 추가하거나, switch 문장에 새로운 case 절을 추가하는 것 처럼...
 
-![image](https://api.monosnap.com/rpc/file/download?id=eLjNrnPZvDFXC1775DWKECLQlbcTGd)
+![img_17.png](img_17.png)
 
 score 함수의 for loop 안의 3가지 if 절.
