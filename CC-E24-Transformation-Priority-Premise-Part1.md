@@ -45,18 +45,18 @@ transformation은 구조 변경없이 행위를 일반화한다.```
 
 ## 1. add failing test(most simple)
 
-![](https://api.monosnap.com/rpc/file/download?id=KpJb2jCO23LnImnW4xlzmBakuh65xV)
+![img_18.png](img_18.png)
 
 ### 1.1 make it compile
 
-![](https://api.monosnap.com/rpc/file/download?id=NHDxb4hiRDj4xCfzQTJuqIyu4GIU5N)
+![img_19.png](img_19.png)
 
 가장 쉽게 성공(지금은 컴파일)시키는 방법은 null을 반환하는 것이다. 이것이 첫번째 transformation인지 **null transformation**이다.
 
 ### 1.2 transform to pass
 primeFactorsOf가 empty list가 아니라 null을 반환하기 때문에 이 테스트는 실패한다. 이 테스트를 성공하도록 하기 위해 null을 empty list로 transform한다.
 
-![](https://api.monosnap.com/rpc/file/download?id=qqpqrwTvID2AqPgTn1UxPjnAnffsCg)
+![img_20.png](img_20.png)
 
 우리의 두번째 **transform은 null -> constant**이다.
 
@@ -68,11 +68,11 @@ null도 constant가 아닌가 ? **null도 constant이지만 null은 매우 특�
 ## 2. add failing test for 2
 2번째 테스트로 `assertThat(primeFactorsOf(1), is(Arrays.asList(2)));`를 추가한다. 이 테스트는 실패한다.
 
-![](https://api.monosnap.com/rpc/file/download?id=bcRnZorqHw9q5Rw9B04ywSREFK8auY)
+![img_21.png](img_21.png)
 
 ### 2.1 transform - 'constant to variable'
 
-![](https://api.monosnap.com/rpc/file/download?id=AxIiKwVMHHcd4y5wGTpJjvKWHafkNZ)
+![img_22.png](img_22.png)
 
 이 테스트를 성공시키기 위해 new ArrayList<Integer>() constant를 일반화(generalize)한다.
 
@@ -83,7 +83,7 @@ null도 constant가 아닌가 ? **null도 constant이지만 null은 매우 특�
 
 ### 2.2 transform - ‘split flow'
 
-![](https://api.monosnap.com/rpc/file/download?id=k2Ufj3I4c6YQ3RmsiYB21Q1RVlF5RS)
+![img_35.png](img_35.png)
 
 constant를 variable로 변경한 transformation은 **split flow**라는 4번째 transformation을 가능하게 한다. split flow transformation에서 if 문장을 사용해서 흐름을 분리한다.
 이 transformation은 제어의 흐름을 분리한다. 이 transformation은 constant -> variable transformation에 의해 가능해졌다.
@@ -92,43 +92,43 @@ constant를 variable로 변경한 transformation은 **split flow**라는 4번째
 ### 2.3 refactoring to general
 **if(n == 2)**였은 매우 specific(테스트의 의도를 그대로 나타낸 것)한 경우이다. 보다 general한 경우를 처리할 수 있도록 리팩토링한다.
 
-![](https://api.monosnap.com/rpc/file/download?id=X43TzM9eH2KLOer9o4ljqLdE8SVbHm)
+![img_23.png](img_23.png)
 
 **if(n > 1)**로 하면 가능성을 열어두게 되기 때문에 훨씬 더 일반적이다.
 
 ## 3. add failing test for 3
 
-![](https://api.monosnap.com/rpc/file/download?id=eqY27run6fJfbgcIhOKhlUt8mEtsYA)
+![img_24.png](img_24.png)
 
 세번째 테스트로 assertThat(primeFactorsOf(3), isListOf(3));를 추가하면 테스트가 실패한다.
 
 ### 3.1 transform - ‘constant to variable'
 
-![](https://api.monosnap.com/rpc/file/download?id=UxfYde9xtNIFldCcuu5hKa8aoB3JE4)
+![img_25.png](img_25.png)
 
 이 테스트를 성공시키기 위해 **constant -> varaible** transformation을 적용하여 **factors.add(2)를factors.add(n)**으로 변경한다.
 
 ## 4. add failing test for 4
 
-![](https://api.monosnap.com/rpc/file/download?id=H0PMVQbYzUfhQWrV9TLT0tlsjukdsZ)
+![img_26.png](img_26.png)
 
 네번째 테스트로 assertThat(primeFactorsOf(4), isListOf(2,2));를 추가한다.
 
 ### 4.1 transform - split flow
 이 테스트를 성공시키기 위해선 다시 n이 2로 나눠지는지 여부에 따라 split을 해야 한다.
 
-![](https://api.monosnap.com/rpc/file/download?id=xEFmv9VyGsxna7xuzfaQICqa7nGF22)
+![img_27.png](img_27.png)
 
 ### 4.2 more transform - split flow
 하지만 이렇게 고쳐도 테스트는 실패한다. 4의 경우는 성공하지만 2의 경우는 2만이 아니라 1도 포함되기 때문이다. 성공시키기 위해서 한번 더 split한다.
 
-![](https://api.monosnap.com/rpc/file/download?id=8YxsHveprixcnlhwzU7H2XJfvrbIfa)
+![img_28.png](img_28.png)
 
 이렇게 하면 성공된다.
 
 ### 4.3 refactor
 
-![](https://api.monosnap.com/rpc/file/download?id=XktdknU22zRI57Zf9XMYSqUjlNdkCv)
+![img_29.png](img_29.png)
 
 n > 1인 경우에 대해서는 2번이나 split을 했다. 걱정하지 말라. 그런 split은 곧 사라진다. 2번째 n > 1부분은 조건절 외부로 이동시켜도 아무런 이슈가 없다.
 
@@ -136,7 +136,7 @@ n > 1인 경우에 대해서는 2번이나 split을 했다. 걱정하지 말라.
 
 test code의 중복 제거
 
-![image](https://api.monosnap.com/rpc/file/download?id=327QST6STNSl8SzfDsPq8NtE97Jn5O)
+![img_30.png](img_30.png)
 
 ## 5. add more tests
 5,6,7의 경우는 테스트를 추가해도 패스한다.
@@ -146,7 +146,7 @@ test code의 중복 제거
 
 ### 6.1 transform - if to while
 
-![](https://api.monosnap.com/rpc/file/download?id=Q5JsKRlIAaIYT3wYn9j5NurT0xWTxD)
+![img_31.png](img_31.png)
 
 **if -> while** transformation을 적용하여 테스트를 성공시킬 수 있다.
 
@@ -155,7 +155,7 @@ test code의 중복 제거
 ### 6.2 refactor
 while loop를 아래와 같이 for loop로 refactoring하여 가독성을 높인다.
 
-![](https://api.monosnap.com/rpc/file/download?id=y0OdlMDVbGyz3JQgMkLEZ03yCMEm2x)
+![img_32.png](img_32.png)
 
 ## 7. add failing test for 9
 `assertThat(primeFactorsOf(9), isListOf(3, 3));` 테스트를 추가한다.
@@ -163,7 +163,7 @@ while loop를 아래와 같이 for loop로 refactoring하여 가독성을 높인
 ### 7.1 make it pass by duplicating
 아래와 같이 3으로 나눠지는 경우를 추가하여 테스트를 성공시킨다.
 
-![](https://api.monosnap.com/rpc/file/download?id=3KHvpgmj2bTdYifDrSPjph55P5H0oo)
+![img_33.png](img_33.png)
 
 ### 7.2 transform to remove duplication - add more generalized loop
 
@@ -171,7 +171,7 @@ while loop를 아래와 같이 for loop로 refactoring하여 가독성을 높인
 중복 자체는 있을 수도 있지만 중복된 코드가 있는 상태에서 소스 리파지토리에 체크인되어서는 안된다.
 **이 중복은 transformation이 아니다. 왜냐하면 어떤 것도 일반화하지 않았기 때문이다.** 이제 할일은 **중복을 제거하기 위해 보다 일반화된 루프를 적용**하는 것이다. **중복된 코드는 언제나 일반적이지 않고 특수하다**
 
-![](https://api.monosnap.com/rpc/file/download?id=HrLEvN0FEeGmO4RJV8NUTUjq38G9ww)
+![img_34.png](img_34.png)
 
 ### 7.3 refactor
 while loop를 for loop로 refactoring하여 가독성 증대
