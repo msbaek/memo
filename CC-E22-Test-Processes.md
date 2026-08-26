@@ -46,7 +46,7 @@ faking의 목적은 incrementalism이다. 테스트 케이스를 통과시키기
 
 ### 1.2 Getting Stuck
 
-어떤 경우에 fake it은 동작하지 않는다. 
+어떤 경우에 fake it은 동작하지 않는다.
 
 [wordwrap 예제](https://github.com/msbaek/wordwrap)에서 getting stuck된 상황을 봐라. 어떤 경우에는 테스트를 작성했는데 fake로 성공시킬 수 없고, 테스트를 성공시키기 위해서는 그 즉시 모든 알고리즘을 구현해야 하는 경우가 있다. 이런 경우 getting stucking(더 이상 나아갈 수 없는 상태)된 것이다. 이때의 해결책은 **"write a simpler test"**이다.
 
@@ -64,57 +64,57 @@ faking의 목적은 incrementalism이다. 테스트 케이스를 통과시키기
 
 ### 2.1 볼링 게임 예제
 
- - 제일 처음에 Game 클래스를 생성하기 위한 canCreateGame 테스트를 추가하다.
- 	- Game 클래스를 생성하는 대신... 테스트가 있어야만 코드를 작성할 수 있다.
- 
-    ```
-    @Test
-    public void canCreateGame() {
-      Game g = new Game();
-    }
-    ```
+- 제일 처음에 Game 클래스를 생성하기 위한 canCreateGame 테스트를 추가하다.
+    - Game 클래스를 생성하는 대신... 테스트가 있어야만 코드를 작성할 수 있다.
 
- - 그 다음 roll 메소드를 추가하기 위한 canRoll 테스트를 추가한다.
- 
-    ```
-    @Test
-    public void canRoll() {
-        Game g = new Game();
-        g.roll(0);
-    }
-    ```
-    
- - 여기까지 구현하면 `Game game = new Game();`이 2개의 테스트 케이스에서 **중복**된다. game을 필드로 추출하고 setup 메소드에서 초기화하도록 rafctoring한다.
- 
-    ```
-    Game g;
+   ```
+   @Test
+   public void canCreateGame() {
+     Game g = new Game();
+   }
+   ```
 
-	@Before
-    public void setup() {
-        g = new Game();
-    }
-    
-    @Test
-    public void canCreateGame() {
-    }
+- 그 다음 roll 메소드를 추가하기 위한 canRoll 테스트를 추가한다.
 
-    @Test
-    public void canRoll() {
-        g.roll(0);
-    }
-    ```
-    
- - 그러면 canCreateGame은 empty body가 되어 불필요해지므로 삭제한다.
- - gutterGame 테스트 케이스를 추가한다. score 구현시 디폴트 0대신 -1을 반환하여 실패하는지 확인하고, 후에 0으로 변경하여 성공시킨다(faking it. 성공만 확인하는 것이 아니라 실패도 확인).
- 
-    ```
-    @Test
-    public void gutterGame() {
-        for(int i = 0; i < 20; i++)
-            game.roll(0);
-        assertThat(game.score(), is(0));
-    } 
-    ```
+   ```
+   @Test
+   public void canRoll() {
+       Game g = new Game();
+       g.roll(0);
+   }
+   ```
+
+- 여기까지 구현하면 `Game game = new Game();`이 2개의 테스트 케이스에서 **중복**된다. game을 필드로 추출하고 setup 메소드에서 초기화하도록 rafctoring한다.
+
+   ```
+   Game g;
+
+   @Before
+   public void setup() {
+       g = new Game();
+   }
+   
+   @Test
+   public void canCreateGame() {
+   }
+
+   @Test
+   public void canRoll() {
+       g.roll(0);
+   }
+   ```
+
+- 그러면 canCreateGame은 empty body가 되어 불필요해지므로 삭제한다.
+- gutterGame 테스트 케이스를 추가한다. score 구현시 디폴트 0대신 -1을 반환하여 실패하는지 확인하고, 후에 0으로 변경하여 성공시킨다(faking it. 성공만 확인하는 것이 아니라 실패도 확인).
+
+   ```
+   @Test
+   public void gutterGame() {
+       for(int i = 0; i < 20; i++)
+           game.roll(0);
+       assertThat(game.score(), is(0));
+   } 
+   ```
 
  - refactoring: canRoll이 불필요해짐. 왜냐면 gutterGame에서 roll을 호출하니... 이런게 stairstep test이다.
 

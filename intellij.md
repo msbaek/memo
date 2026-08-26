@@ -99,6 +99,40 @@ IntelliJ Ultimate Edition를 사용 중인데 아래 설명하는 부분을 추�
 ### POJO to JSON plugin
 
 - make json(class명에서 우클릭)
+## AI Commit Template
+  Settings/Preferences (⌘,)
+    → Tools
+      → AI Assistant
+        → Prompt Library
+          → "Commit Message" 프롬프트 선택 후 편집
+
+```template
+Generate a commit message for the staged changes, following these rules exactly.
+
+Format: Conventional Commits — `type(scope): subject`
+
+Type (choose one):
+- feat: 새로운 기능
+- fix: 버그 수정
+- docs: 문서
+- style: 포맷팅 (동작 변화 없음)
+- refactor: 리팩토링
+- test: 테스트 추가/수정
+- chore: 빌드·설정·잡무
+
+Subject line:
+- 50자 이내, 마침표로 끝내지 않음
+- 변경 의도가 드러나게 한글로 작성하되, 기술 용어는 영어 그대로 유지
+- scope는 변경된 모듈/영역명 (예: order, payment, claude)
+
+Body (필요할 때만):
+- 한 줄당 72자에서 줄바꿈
+- bullet(-)로 최대 3개 항목만 작성
+- "무엇을"이 아니라 "왜 / 어떤 영향"을 비즈니스 맥락 중심으로 설명
+- 기술 용어는 영어 우선
+
+Output: 커밋 메시지 본문만 출력하고, 따옴표나 코드블록으로 감싸지 말 것.
+```
 
 ## 참고자료
 

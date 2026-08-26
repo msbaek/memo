@@ -1,4 +1,16 @@
+---
+id: DDD-Distilled
+tags: []
+created_at: 2024-06-30 15:59
+source: []
+author: []
+related: []
+---
 # DDD-Distilled
+
+```insta-toc
+
+```
 
 https://www.safaribooksonline.com/library/view/domain-driven-design-distilled/9780134593449/
 
@@ -34,19 +46,18 @@ domain events
 독일인이 독일어를 사용하고, 프랑스인이 불어를 사용하듯 BC에 따라 UL이 달라진다.
 심지어 스페인과 콜롬비아에서 사용되는 스페인어는 서로 다를 수 있다. 유사한 UL도 BC에 따라 의미가 달라질 수 있다.
 
-![](https://api.monosnap.com/rpc/file/download?id=qXxfTkfWOmANCjFcXInI9JT5AKaEa1)
+![[Pasted image 20260630160052.png]]
 
 BC내에서는 UL로 의미로 갖지만 BC를 벗어나면 그 의미를 갖지 않게된다.
 
 BC가 없다면 모델이 점점 커졌을 때 Big Ball of Mud에서 허덕이여야 할 것이다.
 
 ## Domain Experts and Business Drivers
-
-![](https://api.monosnap.com/rpc/file/download?id=KaZFKOES7kwxHq6YFznZkWtRPLyccE)
+![[Pasted image 20260630160113.png]]
 
 underwriting, claims, inspections 등의 도메인 영역에 Policy라는 개념이 존재한다. 이를 하나의 개념으로 표현한다면 각 영역의 도메인 전문가들이 자신의 영역에 유리하도록 정의하려고 할 것이다. 어떻게 모델링해야 할까 ?
 
-![](https://api.monosnap.com/rpc/file/download?id=AL0Ja9JTz6KcMJQMKXRYDZ50ZMVRez)
+![[Pasted image 20260630160132.png]]
 
 DDD에서는 각 영역에 맞도록 각각의 모델을 갖도록 한다.
 
@@ -55,28 +66,27 @@ DDD에서는 각 영역에 맞도록 각각의 모델을 갖도록 한다.
 ## Case Study - Scrum Project Mgt. Tool
 
 초기 모델 
-
-![](https://api.monosnap.com/rpc/file/download?id=htYBgFt5jUTcWvpGnUPH27CP6DVrmm)
+![[Pasted image 20260630160236.png]]
 
 구독자가 추가된 모델
 
-![](https://api.monosnap.com/rpc/file/download?id=IN9WAXvmmVV4RXInzRvEq6TTyffVhl)
+![[Pasted image 20260630160258.png]]
 
 forum 논의가 추가된 모델
 
-![](https://api.monosnap.com/rpc/file/download?id=hJaFNWGc32ro5u61CdJpQQFbbqlCPx)
+![[Pasted image 20260630160317.png]]
 
 tenent의 account가 추가된 모델
 
-![](https://api.monosnap.com/rpc/file/download?id=HXIvjlBR46GvMYuPYPRXvrDWHRa0Gq)
+![[Pasted image 20260630160336.png]]
 
 team, po가 추가된 모델
 
-![](https://api.monosnap.com/rpc/file/download?id=HnvI51uzTOqqjfwT1DSnNTfiGpWf82)
+![[Pasted image 20260630160353.png]]
 
 지속적으로 모델이 추가되면서 Big Ball of Mud가 되었다.
 
-![](https://api.monosnap.com/rpc/file/download?id=kbYFIyWCh2Ip6oyIqC5NPHoUaob56t)
+![[Pasted image 20260630160409.png]]
 
 ## Fundamental Strategic Design Needs
 
@@ -638,3 +648,8 @@ table of estimation units는 unit test를 포함할 수 있다.
 ![](https://api.monosnap.com/rpc/file/download?id=FzRvnQGE6HpsVmidZenos34juIeKNV)
 
 ![](https://api.monosnap.com/rpc/file/download?id=AIlr3ooeyjbKPJWOOFxrkJVVvSCMQ6)
+
+## Related Notes
+
+- [[003-RESOURCES/ARCHITECTURE/DDD/Growing & Thriving in a Multi-model World - Alberto Brandolini - GOTO 2025]] — DDD Distilled에서 다루는 BC·Subdomain·Context Mapping·Event Storming 개념을 멀티모델 현실 문제와 연결해 설명하는 Brandolini의 GOTO 2025 발표
+- [[003-RESOURCES/DDD/Simply Event Sourcing - Aggregates Were Never Required]] — 이벤트 소싱은 애그리거트를 요구하지 않는다는 반론; Tactical Design의 Aggregate·Event Sourcing 논의를 CCC/DCB 관점에서 재검토
